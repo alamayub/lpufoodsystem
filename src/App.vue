@@ -1,32 +1,27 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <UserNav />
+    <v-content>
+      <router-view></router-view>
+    </v-content>
+    <Footer class="d-none d-sm-flex d-md-flex" />
+    <BottomNav class="d-flex d-sm-none d-md-none" />
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import UserNav from '@/components/UserNav'
+import Footer from '@/components/Footer'
+import BottomNav from '@/components/BottomNav'
+export default {
+  name: 'App',
 
-#nav {
-  padding: 30px;
-}
+  components: {
+    UserNav, Footer, BottomNav
+  },
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>
